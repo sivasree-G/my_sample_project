@@ -1,0 +1,63 @@
+-------------------------------------------------------------------------------
+Test set: moviedefinition.TestRunner
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 1.161 s <<< FAILURE! - in moviedefinition.TestRunner
+Searching correct terms on google(Google search functionality)  Time elapsed: 0.138 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step 'browser is open' and 4 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("browser is open")
+public void browserIsOpen() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Given("user is on the google page")
+public void userIsOnTheGooglePage() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user enters a correct {string} in google search box")
+public void userEntersACorrectInGoogleSearchBox(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user clicks first searching terms")
+public void userClicksFirstSearchingTerms() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("user is navigated to next login page")
+public void userIsNavigatedToNextLoginPage() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Searching incorrect terms on google(Google search functionality)  Time elapsed: 0.009 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step 'browser is open' and 3 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("browser is open")
+public void browserIsOpen() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Given("user is on the google page")
+public void userIsOnTheGooglePage() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user enters an incorrect {string} in google search box")
+public void userEntersAnIncorrectInGoogleSearchBox(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("no result should be displayed")
+public void noResultShouldBeDisplayed() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
