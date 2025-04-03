@@ -10,6 +10,9 @@ COPY . .
 # Build the project using Maven (without running tests)
 RUN mvn clean package -DskipTests
 
+# Debugging: List files after build (optional)
+RUN ls -l /app/target
+
 # Use a minimal Java runtime image for running the application
 FROM eclipse-temurin:17-jre
 
