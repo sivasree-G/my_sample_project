@@ -1,6 +1,6 @@
 # Use an official Maven image as the base image
 FROM maven:3.8.6-eclipse-temurin-17 AS build
-
+EXPOSE 8070
 # Set the working directory inside the container
 WORKDIR /app
 
