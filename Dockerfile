@@ -1,4 +1,4 @@
-# Use Maven as both build and runtime image
+# Use Maven to build the project
 FROM maven:3.8.6-eclipse-temurin-17 AS build
 EXPOSE 8070
 
@@ -12,7 +12,7 @@ COPY . .
 RUN mvn clean compile
 
 # Use the same Maven image for the runtime stage
-FROM maven:3.8.6-eclipse-temurin-17  # ✅ Keep Maven in the final image
+FROM maven:3.8.6-eclipse-temurin-17 AS runtime  # ✅ Corrected
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -22,3 +22,4 @@ COPY --from=build /app .
 
 # Run Cucumber tests when the container starts
 ENTRYPOINT ["mvn", "test"]
+
