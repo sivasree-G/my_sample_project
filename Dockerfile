@@ -16,8 +16,8 @@ FROM eclipse-temurin:17-jre
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the project from the build stage
-COPY --from=build /app /app
+# Copy the built project from the build stage
+COPY --from=build /app .
 
 # Run Cucumber tests when the container starts
 ENTRYPOINT ["mvn", "test"]
