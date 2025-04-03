@@ -1,25 +1,26 @@
-# Use Maven to build the project
+# Use Maven image to build the project
 FROM maven:3.8.6-eclipse-temurin-17 AS build
-EXPOSE 8070
 
-# Set the working directory inside the container
+# Set working directory inside the container
 WORKDIR /app
 
-# Copy the project files to the container
+# Copy project files
 COPY . .
 
 # Build the project using Maven (without running tests)
-RUN mvn clean compile
+RUN mvn clean package -DskipTests
 
-# Use the same Maven image for the runtime stage
-FROM maven:3.8.6-eclipse-temurin-17 AS runtime  # ✅ Corrected
+# Use a minimal Java runtime image for running the application
+FROM eclipse-temurin:17-jre
 
-# Set the working directory inside the container
+# Set working directory inside the container
 WORKDIR /app
 
-# Copy the built project from the build stage
-COPY --from=build /app .  
+# Copy the built JAR file from the build stage
+COPY --from=build /app/target/*.jar app.jar  # Ensure your JAR file is correctly named
 
-# Run Cucumber tests when the container starts
-ENTRYPOINT ["mvn", "test"]
+# Expose the application port
+EXPOSE 8070
 
+# Run the application
+ENTRYPOINT ["java", "-jar", "app.jar"]
